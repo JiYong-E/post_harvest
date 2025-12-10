@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수확의 정석 - AI 과일 품질 분류 시스템</title>
+    <link rel="stylesheet" href="/static/css/quality.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="title-section">
+                <a href="/" class="title-link">
+                    <h1>수확의 정석</h1>
+                </a>
+                <span class="divider">|</span>
+                <p>AI 기반 과일 품질 분류 시스템</p>
+            </div>
+
+            <nav class="nav">
+                <div class="nav-item">
+                    <a href="/dashboard#mask">마스크</a>
+                </div>
+                <div class="nav-item">
+                    <a href="/quality" class="active">품질 분류</a>
+                </div>
+                <div class="nav-item">
+                    <a href="/extraction">특징 추출</a>
+                </div>
+                <div class="nav-item">
+                    <a href="/data">데이터</a>
+                </div>
+            </nav>
+
+            <div class="org-info">
+                <div>농촌진흥청 국립원예특작과학원 저장유통과</div>
+                <div>전북대학교 스마트팜학과</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="content-layout">
+            <div class="upload-section">
+                <div class="upload-header">
+                    <h3 class="fruit-title">참외 품질 분류</h3>
+
+                    <div class="upload-buttons">
+                        <button class="file-add-btn" id="imageSelectBtn">
+                            <img src="/static/images/icon_folder.png" alt="폴더" width="16" height="16">
+                            이미지 추가
+                        </button>
+                        <button class="file-add-btn csv-btn" id="csvSelectBtn">
+                            <img src="/static/images/icon_folder.png" alt="폴더" width="16" height="16">
+                            CSV 추가
+                        </button>
+                    </div>
+                </div>
+
+                <div class="drag-drop-container" id="dropArea">
+                    <input type="file" id="imageInput" accept="image/jpeg,image/png,image/webp" multiple hidden>
+                    <input type="file" id="csvInput" accept=".csv" hidden>
+
+                    <div class="empty-state" id="emptyState">
+                        <div class="upload-icon">
+                            <img src="/static/images/icon_image.png" alt="이미지" width="80" height="80">
+                        </div>
+                        <h3>참외 이미지와 CSV 파일을 업로드해주세요</h3>
+                        <p class="sub-text">(jpg, png, webp 이미지 + csv 파일)</p>
+                    </div>
+
+                    <div class="file-list" id="fileList"></div>
+
+                    <div class="csv-status" id="csvStatus" style="display: none;">
+                        <div class="csv-indicator">
+                            <img src="/static/images/icon_csv.png" alt="CSV" width="32" height="32">
+                            <span id="csvFileName">CSV 파일 없음</span>
+                            <button class="csv-remove-btn" id="csvRemoveBtn">×</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-card info-card-top">
+                    <div class="info-header">
+                        <h4>품질분류</h4>
+                        <div class="action-buttons">
+                            <button class="action-btn btn-run" id="runBtn">
+                                실행
+                            </button>
+                            <div class="save-btn-wrapper">
+                                <button class="action-btn btn-save tooltip-target" id="saveBtn" data-tooltip="품질 분류 결과를 저장">
+                                    <img src="/static/images/icon_save.png" alt="저장" width="16" height="16">
+                                    저장
+                                </button>
+                                <div class="save-dropdown">
+                                    <div class="save-option" data-format="individual">개별 PNG</div>
+                                    <div class="save-option" data-format="zip">ZIP 파일</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-content" id="infoContent">
+                        <h5>
+                            <img src="/static/images/icon_manual.png" alt="매뉴얼" width="18" height="18" style="vertical-align: middle; margin-right: 6px;">
+                            품질 분류 이용방법
+                        </h5>
+                        <ol class="usage-list">
+                            <li>참외 이미지(webp)를 업로드한다.</li>
+                            <li>CSV 파일(storage_day, hwabang, L_mean, A_mean, B_mean 컬럼 포함)을 업로드한다.</li>
+                            <li>실행 버튼을 누른다.</li>
+                            <li>저장 버튼에 마우스를 올려 저장 방식을 선택한다 (개별 PNG 또는 ZIP).</li>
+                            <li>선택한 방식으로 품질 분류된 이미지를 저장한다.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="graph-card">
+                    <div class="graph-header">
+                        <h4>그래프</h4>
+                    </div>
+                    <div class="graph-content">
+                        <canvas id="qualityChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/js/quality.js"></script>
+</body>
+</html>

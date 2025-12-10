@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수확의 정석 - 데이터</title>
+    <link rel="stylesheet" href="/static/css/data.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="title-section">
+                <a href="/" class="title-link">
+                    <h1>수확의 정석</h1>
+                </a>
+                <span class="divider">|</span>
+                <p>AI 기반 과일 품질 분류 시스템</p>
+            </div>
+
+            <nav class="nav">
+                <div class="nav-item">
+                    <a href="/">마스크</a>
+                </div>
+                <div class="nav-item">
+                    <a href="/quality">품질 분류</a>
+                </div>
+                <div class="nav-item">
+                    <a href="/extraction">특징 추출</a>
+                </div>
+                <div class="nav-item">
+                    <a href="/data" class="active">데이터</a>
+                </div>
+            </nav>
+
+            <div class="org-info">
+                <div>농촌진흥청 국립원예특작과학원 저장유통과</div>
+                <div>전북대학교 스마트팜학과</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="data-section">
+            <div class="data-header">
+                <div class="title-buttons-group">
+                    <h4>데이터</h4>
+                    <div class="data-type-buttons">
+                        <button class="data-type-btn active" data-type="mask">마스크</button>
+                        <button class="data-type-btn" data-type="quality">품질 분류</button>
+                        <button class="data-type-btn" data-type="extraction">특징 추출</button>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <div class="save-btn-wrapper">
+                        <button class="action-btn btn-save tooltip-target" id="saveBtn" data-tooltip="데이터를 저장">
+                            <img src="/static/images/icon_save.png" alt="저장" width="16" height="16">
+                            저장
+                        </button>
+                        <div class="save-dropdown">
+                            <div class="save-option" data-format="csv">CSV 파일</div>
+                            <div class="save-option" data-format="excel">Excel 파일</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="data-content" id="dataContent">
+                <div class="empty-data-state">
+                    <div class="empty-icon">
+                        <img src="/static/images/icon_image.png" alt="데이터" width="80" height="80">
+                    </div>
+                    <h3>데이터를 불러오려면 좌측 버튼을 선택하세요</h3>
+                    <p class="sub-text">마스크, 품질 분류, 특징 추출 중 선택</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/js/data.js"></script>
+</body>
+</html>

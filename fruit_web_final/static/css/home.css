@@ -1,0 +1,33 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f9fa; color: #212529; }
+
+.header { background: #ffffff; border-bottom: 1px solid #e5e7eb; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); }
+.header-container { max-width: 100%; margin: 0 auto; padding: 0.5rem 4%; display: flex; justify-content: space-between; align-items: center; }
+
+.title-section { display: flex; align-items: center; gap: 0.75rem; }
+.home-link { text-decoration: none; color: inherit; }
+.title-section h1 { font-size: 1.5rem; font-weight: 700; color: #1f2937; }
+.title-section .divider { color: #d1d5db; font-size: 1.25rem; }
+.title-section p { font-size: 0.875rem; color: #6b7280; }
+
+.nav { display: flex; gap: 3vw; justify-content: center; padding: 0.75rem 0; max-width: 100%; margin: 0 auto; }
+.nav-item { position: relative; }
+.nav-item > a { display: inline-block; padding: 0.5rem 0; color: #374151; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.2s; position: relative; }
+.nav-item > a:hover { color: #2563eb; }
+.nav-item > a.active { color: #1f2937; }
+.nav-item > a.active::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: #1f2937; }
+
+.org-info { text-align: right; font-size: 0.8rem; color: #6b7280; line-height: 1.5; }
+.org-info div { font-weight: 500; }
+
+.home-content { width: 100%; height: calc(100vh - 80px); overflow: hidden; }
+
+.image-container { width: 100%; height: 100%; overflow: hidden; position: relative; }
+
+.home-image { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
+
+.home-text-overlay { position: absolute; top: 7rem; left: 9rem; max-width: 600px; color: #1f2937; z-index: 10; }
+
+.home-title { font-size: 2.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem; color: #1f2937; }
+
+.home-description { font-size: 1rem; line-height: 1.8; color: #4b5563; }
